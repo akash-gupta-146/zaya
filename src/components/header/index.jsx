@@ -42,8 +42,8 @@ const mapStateToProps = state => {
 
 const mapDispachToProps = dispach => {
     return{
-        ageUp:  ()=> dispach(AGE_UP),
-        ageDown: () => dispach(AGE_DOWN)
+        ageUp:  ()=> dispach({type:AGE_UP}),
+        ageDown: () => dispach({type:AGE_DOWN})
     }
 }
 

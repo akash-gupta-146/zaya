@@ -1,2 +1,4 @@
-export const AGE_UP = { type: 'AGE_UP'}
-export const AGE_DOWN = { type: 'AGE_DOWN'}
+export const AGE_UP = 'AGE_UP'
+export const AGE_DOWN = 'AGE_DOWN'
+
+export const SET_COURSE = 'SET_COURSE'
