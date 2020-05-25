@@ -5,10 +5,6 @@ import Menu from './../menu/menu'
 import Thumbnails from '../videoThumbnails';
 class Body extends Component{
 
-    componentDidUpdate(){
-        console.log("Body",this.props)
-    }
-
     render(){
         return<>
             <div className={`${style.card} flex`}>

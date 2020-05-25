@@ -12,9 +12,7 @@ class Menu extends React.Component{
         }
     }
 
-    componentDidUpdate(){
-        console.log('MENU',this.props)
-    }
+
     callCard(index,call=1){
         this.props.setObjective(index)
         if(call)

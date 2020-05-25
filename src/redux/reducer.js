@@ -35,7 +35,6 @@ const reducer =  (state = initialState,action) => {
             newState.course.lessonDetails[state.activeLesson].objectiveDetails[action.objective].objectiveVideosDetails.forEach(async (video,index)=>{
                 let response = await fetch(`https://vimeo.com/api/oembed.json?url=${video.url}`);
                 let data = await response.json();
-                console.log('aaa')
                 vd.push(data)
                 newState.videos =  [].concat(vd)
             });
