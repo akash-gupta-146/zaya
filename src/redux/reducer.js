@@ -1,8 +1,7 @@
-import { AGE_UP, AGE_DOWN, SET_COURSE, SET_ACTIVE_LESSON, SET_ACTIVE_OBJECT, SET_ACTIVE_VIDEO, MARK_DONE,MARK_NOT_DOING, MARK_NEXT_CLASS  } from './action-types' 
+import { SET_COURSE, SET_ACTIVE_LESSON, SET_ACTIVE_OBJECT, SET_ACTIVE_VIDEO, MARK_DONE,MARK_NOT_DOING, MARK_NEXT_CLASS  } from './action-types' 
 import update from 'react-addons-update'; // ES6
 
 const initialState = {
-    age : 21,
     course: [],
     activeLesson:0,
     activeObjective: 0,
@@ -65,12 +64,6 @@ const reducer =  (state = initialState,action) => {
                     state,state.course.lessonDetails[action.lesson].objectiveDetails[action.objective].nextClass= true,
                     )
                 break;            
-        case AGE_UP:
-            newState.age++;
-            break;
-        case AGE_DOWN:
-            newState.age--;
-            break;
         default: return newState
     }
      return  newState;
