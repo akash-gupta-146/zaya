@@ -1,30 +1,48 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { AGE_UP, AGE_DOWN } from './../../redux/action-types';
+import { SET_ACTIVE_LESSON } from './../../redux/action-types';
 import * as style from './style.module.scss'
 
 class Header extends Component{
 
-    render(){
+
+
+    componentDidUpdate(){
+        console.log("HEADER",this.props)
+    }
+
+
+
+    render= () => {
+        const { course } = this.props;
+
+
         return<>
             <div className={`flex justify-between align-center ${style.header}`}>
                 <img height="70" src="https://getdrawings.com/free-icon/boy-icon-png-55.png" className={style.logo} alt="lgo"/>
                 <div className={style.content}>
-    <h1 className={style.appTitile}>The dhoom machale song {this.props.age}</h1>
+                    <h1 className={style.appTitile}> { course?.recitalTitle }</h1>
                     <div className={`flex justify-center align-center ${style.lessons}`}>
-                        <div className={style.text}>Lessons</div>
+                        <div className={style.text}>{ course?.instrumentTitle }</div>
                         <div className={style.lessonSelectors}>
-                            <span className={`${style.lessonNo}`}>1</span>
-                            <span className={style.lessonNo}>2</span>
-                            <span className={style.lessonNo}>3</span>
-                            <span className={style.lessonNo}>4</span>
-                            <span className={style.lessonNo}>5</span>
+                            {
+                                course?.lessonDetails?.map((item,index)=>{
+ 
+                                return <span key={`lesson${index}`} 
+                                            className={`${style.lessonNo} ${this.props.activeLesson === index ? style.current : ''}`} 
+                                            onClick={()=>{this.props.setLesson(index)}}
+                                            >
+                                                {index+1}
+
+                                        </span>
+                                })
+                            }
                         </div>
                     </div>
                 </div>
                 <div className={style.rightSection}>
                     <div className={style.lessonType}>
-                        Keyboard
+                        Keyboard 
                     </div>
                     <button className={style.exit} onClick={this.props.ageUp}>Clear Session</button>
                 </div>
@@ -36,14 +54,14 @@ class Header extends Component{
 
 const mapStateToProps = state => {
     return{
-        age: state.age
+        course : state.course,
+        activeLesson : state.activeLesson
     }
 }
 
 const mapDispachToProps = dispach => {
     return{
-        ageUp:  ()=> dispach({type:AGE_UP}),
-        ageDown: () => dispach({type:AGE_DOWN})
+        setLesson: (active) => dispach({type: SET_ACTIVE_LESSON, active:active})
     }
 }
 

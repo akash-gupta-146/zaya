@@ -1,29 +1,38 @@
 import React, { Component } from 'react';
 import * as style from './style.module.scss'
 import { connect } from 'react-redux';
-
+import Menu from './../menu/menu'
+import Thumbnails from '../videoThumbnails';
 class Body extends Component{
 
-    componentDidMount(){
-        // fetch('/db/data.json')
-        // .then(res => res.json())
-        // .then( data => console.log(data))
+    componentDidUpdate(){
+        console.log("Body",this.props)
     }
 
     render(){
         return<>
-            <div className={style.card}>
-                i am Body
-                {this.props.age}
-
-                { console.log(this.props.course, 'ak')}
+            <div className={`${style.card} flex`}>
+                <Menu />
+                <div className={style.videoPlayer}>
+                    <div dangerouslySetInnerHTML={{__html: this.props.activeVideo.html}}/>
+                </div>
+                <div className={style.thumbnails}>
+                    <Thumbnails />
+                </div>
             </div>
         </>
     }
 }
 
 const mapStateToProps = state => {
-    return { age: state.age, course: state.course}
+    return {
+        activeVideo : state.activeVideo
+    }
+}
+const mapDispachToProps = dispach => {
+    return {
+        play : () => dispach({type:'Iamakash'})
+    }
 }
 
-export default connect(mapStateToProps)(Body)
+export default connect(mapStateToProps,mapDispachToProps)(Body)
