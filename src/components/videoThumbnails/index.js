@@ -49,6 +49,9 @@ renderList=()=>{
                     
                             })
                 }
+                {
+                            this.props.activeVideo(this.props.videos[0])
+                }
             </div>
         </div>
     }

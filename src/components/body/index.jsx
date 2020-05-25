@@ -14,7 +14,7 @@ class Body extends Component{
             <div className={`${style.card} flex`}>
                 <Menu />
                 <div className={style.videoPlayer}>
-                    <div dangerouslySetInnerHTML={{__html: this.props.activeVideo.html}}/>
+                { this.props.activeVideo?.html && <div dangerouslySetInnerHTML={{__html: this.props.activeVideo.html}}/> }
                 </div>
                 <div className={style.thumbnails}>
                     <Thumbnails />

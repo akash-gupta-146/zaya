@@ -20,7 +20,8 @@ const reducer =  (state = initialState,action) => {
             newState.course = action.course
             break;
         case SET_ACTIVE_LESSON:
-            newState.activeLesson= action.active
+            newState.activeLesson= action.active;
+            newState.activeObjective = 0;
             break;
         case SET_ACTIVE_OBJECT:
             newState.activeObjective = action.objective;
