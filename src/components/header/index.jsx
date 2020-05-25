@@ -6,11 +6,6 @@ import * as style from './style.module.scss'
 class Header extends Component{
 
 
-
-    componentDidUpdate(){
-        console.log("HEADER",this.props)
-    }
-
     refresh(){
         if(window){
             window.location.reload()
