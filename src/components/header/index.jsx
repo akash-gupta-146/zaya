@@ -11,11 +11,14 @@ class Header extends Component{
         console.log("HEADER",this.props)
     }
 
-
+    refresh(){
+        if(window){
+            window.location.reload()
+        }
+    }
 
     render= () => {
         const { course } = this.props;
-
 
         return<>
             <div className={`flex justify-between align-center ${style.header}`}>
@@ -27,9 +30,16 @@ class Header extends Component{
                         <div className={style.lessonSelectors}>
                             {
                                 course?.lessonDetails?.map((item,index)=>{
- 
+                                    let completed=true;
+                                    item.objectiveDetails.forEach(obj => {
+                                        if(!obj.done){
+                                            completed = false;
+                                        }
+                                    });
                                 return <span key={`lesson${index}`} 
-                                            className={`${style.lessonNo} ${this.props.activeLesson === index ? style.current : ''}`} 
+                                            className={`${style.lessonNo} 
+                                            ${this.props.activeLesson === index ? style.current : ''}
+                                            ${ completed? '':style.orange}`} 
                                             onClick={()=>{this.props.setLesson(index)}}
                                             >
                                                 {index+1}
@@ -44,7 +54,7 @@ class Header extends Component{
                     <div className={style.lessonType}>
                         Keyboard 
                     </div>
-                    <button className={style.exit} onClick={this.props.ageUp}>Clear Session</button>
+                    <span className={style.exit} onClick={this.refresh}>Clear Session</span>
                 </div>
             </div>
         </>

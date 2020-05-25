@@ -16,12 +16,15 @@
         height: 20px;
         display: inline-block;
         border-radius: 50%;
-        background:orange;
+        background:green;
         padding:5px;
         transition:0.2s;
         cursor:pointer;
         margin:0 10px;
         border:2px solid gray;
+        &.orange{
+            background:orange;
+        }
         &:hover{
             box-shadow:0 8px 10px rgba(0,0,0,0.4)
         }
@@ -32,4 +35,26 @@
             background:green;
         }
     }
+}
+
+.exit{
+    border: 0;
+    padding: 10px;
+    border-radius: 25px;
+    color: white;
+    background: #ff5858;
+    font-weight: bold;
+    margin-top:30px;
+    cursor:pointer;
+    transition: 0.3s;;
+    &:hover{
+        box-shadow:1px 6px 10px rgba(234, 83, 85 ,0.79)
+    }
+}
+
+.rightSection{
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    align-items: center;
 }

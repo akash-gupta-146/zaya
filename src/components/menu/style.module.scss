@@ -2,16 +2,18 @@
     background:orange;
     width:300px;
     text-align: center;
+    overflow-y: auto;
     h3{
         border-bottom: 2px solid black;
         padding-bottom: 10px;
     }
     .card{
-        padding:10px 20px;
+        padding:10px 20px 40px 20px;
         background:white;
         margin: 20px;
         cursor:pointer;
         border: 2px solid transparent;
+        transition: 0.3s;;
         &:hover{
             border-color:black;
         }
@@ -22,5 +24,38 @@
             font-size:20px;
             font-weight: bold;
         }
+    }
+}
+
+.done{
+    border:5px solid green!important;
+}
+.notDoing{
+    border:5px solid red!important;
+}
+.nextClass{
+    border:5px solid blue!important;
+}
+
+.active{
+    box-shadow: 0 0 10px 6px rgba(0, 0, 0, 0.7);
+    border-radius: 20px;;
+}
+
+
+
+.obj{
+    position: relative;
+    .actions{
+        position:absolute;
+    width: 100%;
+    bottom: 5px;
+    span{
+        background: transparent;
+        width: 40px;
+        border-radius: 50%;
+        border: 0;
+        cursor:pointer;
+    }
     }
 }
