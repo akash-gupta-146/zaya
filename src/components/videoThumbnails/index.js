@@ -42,7 +42,7 @@ renderList=()=>{
                             this.props.videos.map((video,index)=>{
                                 console.log(video,'iiiii aaammmmm in    thtutntmmbanasl')
                                 return <div key={`thumbnail${index}`} className={`flex`}> 
-                                        <div className={style.vimeo} onClick={()=>{this.props.activeVideo(this.state.videDetails[index])}}>
+                                        <div className={style.vimeo} onClick={()=>{this.props.activeVideo(video)}}>
                                             <img src={video.thumbnail_url_with_play_button} alt="video thumbnail"/> 
                                         </div>
                                 </div>

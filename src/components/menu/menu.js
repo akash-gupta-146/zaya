@@ -17,7 +17,7 @@ class Menu extends React.Component{
             {
                 courseDetails &&
                 <div>
-                    <h4> { courseDetails[activeLesson].lessonTitle } { this.props.activeObjective}</h4>
+                    <h4> { courseDetails[activeLesson].lessonTitle }</h4>
                     {
                         courseDetails[activeLesson].objectiveDetails.map((obj,index)=>{
                             return <div 

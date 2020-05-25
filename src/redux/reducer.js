@@ -31,8 +31,6 @@ const reducer =  (state = initialState,action) => {
                 vd.push(data)
                 newState.videos =  [].concat(vd)
             });
-
-            console.log(newState.videos,'llllllllllllllllllllll')
             break;
         case SET_ACTIVE_VIDEO:
             newState.activeVideo = action.videoDetails
